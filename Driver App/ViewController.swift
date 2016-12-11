@@ -33,14 +33,27 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let caraBlue = UIColor.init(red: 0, green: 91/255, blue: 171/255, alpha: 0)
+
+        self.navigationItem.title = "Cara Driver App"
+        self.navigationController?.navigationBar.tintColor = caraBlue
+        self.navigationController?.navigationBar.backgroundColor = caraBlue
+        self.navigationController?.navigationBar.barTintColor = caraBlue
+        self.navigationController?.navigationBar.isOpaque = false;
+        self.navigationController?.navigationBar.isTranslucent = false;
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSForegroundColorAttributeName: UIColor.white
+        ]
+        
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.default;
+        
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
 
         self.orderIDField.delegate = self
         
         LocationManager.sharedInstance.registerForLocationChanges({ (location, callback) in
-            self.showUserLocation(location: location)
-            
             if self.orderID != 0
             {
                 self.submitLocation()

@@ -78,7 +78,7 @@ final class LocationManager : NSObject, CLLocationManagerDelegate
         let newLocation = locations.first
         currentLocation = newLocation!
         
-        for (index, object) in registrants.enumerated()
+        for (_, object) in registrants.enumerated()
         {
             if let object = object as? LocationCallback
             {
