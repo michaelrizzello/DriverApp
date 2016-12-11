@@ -78,26 +78,25 @@ final class LocationManager : NSObject, CLLocationManagerDelegate
         let newLocation = locations.first
         currentLocation = newLocation!
         
-        var removeRegistrants = [LocationCallback]()
-        
-        for (object) in registrants
+        for (index, object) in registrants.enumerated()
         {
             if let object = object as? LocationCallback
             {
-                if (object.target != nil)
+                if let trg = object.target, let closure = object.closure
                 {
-                    object.closure?(currentLocation, object)
+                    let registrant = LocationCallback(aTarget: trg, aClosure: closure)
+                    
+                    if (self.locationIsAccurate())
+                    {
+                        registrant.closure?(currentLocation, registrant)
+                    }
                 }
-                else {
-                    removeRegistrants += [object]
-                }
+                
+                
             }
             
         }
-        
-        self.unregisterLocationClosures(removeRegistrants)
-        
-        self.locationManager.stopUpdatingLocation();
+
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

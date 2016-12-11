@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,23 +20,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVl-bf-H87">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY7-zl-ASF">
-                                        <rect key="frame" x="109" y="152" width="157" height="30"/>
                                         <state key="normal" title="Update Order Location"/>
                                         <connections>
                                             <action selector="submitLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V6d-dn-p7h"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Order ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nd-Ue-mi5">
-                                        <rect key="frame" x="138" y="86" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="13r-wh-Qax"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,20 +44,27 @@
                                     <constraint firstItem="cY7-zl-ASF" firstAttribute="centerX" secondItem="uVl-bf-H87" secondAttribute="centerX" id="yS3-5i-t5M"/>
                                 </constraints>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="un9-EP-506">
-                                <rect key="frame" x="0.0" y="334" width="375" height="334"/>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="un9-EP-506"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eia-O9-86Y">
+                                <state key="normal" image="nav_geolocation.png"/>
+                                <connections>
+                                    <action selector="myLocationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bmw-lY-9yt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="un9-EP-506" secondAttribute="trailing" id="2tc-Yn-BAF"/>
                             <constraint firstItem="un9-EP-506" firstAttribute="top" secondItem="uVl-bf-H87" secondAttribute="bottom" id="3x0-Cr-S2F"/>
                             <constraint firstAttribute="trailing" secondItem="uVl-bf-H87" secondAttribute="trailing" id="6QX-Qi-Z0j"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="un9-EP-506" secondAttribute="bottom" constant="-1" id="LFT-zx-4Yi"/>
-                            <constraint firstItem="uVl-bf-H87" firstAttribute="leading" secondItem="un9-EP-506" secondAttribute="leading" id="Oao-KB-KfJ"/>
+                            <constraint firstItem="un9-EP-506" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B31-H3-goM"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="un9-EP-506" secondAttribute="bottom" id="LFT-zx-4Yi"/>
                             <constraint firstItem="un9-EP-506" firstAttribute="width" secondItem="uVl-bf-H87" secondAttribute="width" id="QPF-1M-PBw"/>
                             <constraint firstItem="uVl-bf-H87" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dco-Nj-MPH"/>
                             <constraint firstItem="uVl-bf-H87" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jDK-b9-gdF"/>
+                            <constraint firstAttribute="trailing" secondItem="eia-O9-86Y" secondAttribute="trailing" constant="30" id="mER-su-Ega"/>
                             <constraint firstItem="un9-EP-506" firstAttribute="height" secondItem="uVl-bf-H87" secondAttribute="height" id="oBD-nG-NaZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eia-O9-86Y" secondAttribute="bottom" constant="30" id="oah-2R-V8E"/>
                         </constraints>
                     </view>
                     <connections>
@@ -75,4 +76,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="nav_geolocation.png" width="38" height="37"/>
+    </resources>
 </document>

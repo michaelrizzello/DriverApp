@@ -28,6 +28,8 @@ final class APIRequest : NSObject
             })
         }
         
+        print(url)
+
         Alamofire.request(url, method: method, parameters: apiData, encoding: JSONEncoding.default, headers: headers)
             .validate()
             .responseJSON{ response in

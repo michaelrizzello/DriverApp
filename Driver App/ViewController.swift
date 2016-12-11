@@ -14,17 +14,38 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var orderIDField: UITextField!
     
+    var orderID : Int = 0
+    
+    @IBAction func myLocationAction(_ sender: AnyObject) {
+        self.showMyLocation()
+    }
+
+    func showMyLocation()
+    {
+        showUserLocation(location: LocationManager.sharedInstance.currentLocation)
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        self.showMyLocation()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
-        
+
         self.orderIDField.delegate = self
         
         LocationManager.sharedInstance.registerForLocationChanges({ (location, callback) in
             self.showUserLocation(location: location)
+            
+            if self.orderID != 0
+            {
+                self.submitLocation()
+            }
+            
         }, target: self)
     }
     
@@ -45,36 +66,55 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         self.mapView.setRegion(region, animated: true)
     }
     
-    @IBAction func submitLocation(_ sender: Any)
+    func submitLocation()
     {
+        if self.orderID == 0
+        {
+            return
+        }
+        
         let lat : Double = LocationManager.sharedInstance.currentLocation.coordinate.latitude
         let lng : Double = LocationManager.sharedInstance.currentLocation.coordinate.longitude
         
-        if let orderID : Int = Int(orderIDField.text!)
-        {
-            
-            APIManager.sharedInstance.submitLocation(orderID: orderID, lat: lat, lng: lng, callback: { (success, response) in
-                if (success)
+        APIManager.sharedInstance.submitLocation(orderID: self.orderID, lat: lat, lng: lng, callback: { (success, response) in
+            if (success)
+            {
+                if let response = response
                 {
-                    if let response = response
+                    let status = response["success"].bool
+                    
+                    if (status == false)
                     {
-                        let status = response["success"].bool
-                        
-                        if (status == false)
-                        {
-                            print(response)
-                        }
+                        print(response)
                     }
                 }
-                
-                
+            }
+            
+            
             }, errorCallback: { (error) in
                 if let error = error
                 {
                     print(error)
                 }
-            })
+        })
+    }
+    
+    @IBAction func submitLocation(_ sender: Any)
+    {
+        self.orderIDField.resignFirstResponder()
+
+        if let orderIDField = self.orderIDField.text
+        {
+            if orderIDField.characters.count > 0
+            {
+                if let orderID = Int.init(orderIDField)
+                {
+                    self.orderID = orderID
+                }
+            }
         }
+        
+        self.submitLocation()
     }
 }
 

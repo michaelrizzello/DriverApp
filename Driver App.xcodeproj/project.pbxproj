@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1451CC58A41C1809A3C01556 /* Pods_Driver_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CA7223742165339F038F11 /* Pods_Driver_App.framework */; };
+		AC196B131DFDB75900C39D67 /* nav_geolocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC196B121DFDB75900C39D67 /* nav_geolocation@2x.png */; };
 		AC1AFBC51DFB435300E0BAF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AFBC41DFB435300E0BAF3 /* AppDelegate.swift */; };
 		AC1AFBC71DFB435300E0BAF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AFBC61DFB435300E0BAF3 /* ViewController.swift */; };
 		AC1AFBCA1DFB435300E0BAF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1AFBC81DFB435300E0BAF3 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		15059EF1A8B1F877B4DF5522 /* Pods-Driver App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Driver App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Driver App/Pods-Driver App.release.xcconfig"; sourceTree = "<group>"; };
 		55CA7223742165339F038F11 /* Pods_Driver_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Driver_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC196B121DFDB75900C39D67 /* nav_geolocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_geolocation@2x.png"; sourceTree = "<group>"; };
 		AC1AFBC11DFB435300E0BAF3 /* Driver App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Driver App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1AFBC41DFB435300E0BAF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC1AFBC61DFB435300E0BAF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		AC1AFBC31DFB435300E0BAF3 /* Driver App */ = {
 			isa = PBXGroup;
 			children = (
+				AC196B121DFDB75900C39D67 /* nav_geolocation@2x.png */,
 				AC1AFBE81DFB43BB00E0BAF3 /* Foundation */,
 				AC1AFBC41DFB435300E0BAF3 /* AppDelegate.swift */,
 				AC1AFBC61DFB435300E0BAF3 /* ViewController.swift */,
@@ -185,7 +188,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Michael Rizzello";
 				TargetAttributes = {
 					AC1AFBC01DFB435300E0BAF3 = {
@@ -221,6 +224,7 @@
 				AC1AFBCF1DFB435300E0BAF3 /* LaunchScreen.storyboard in Resources */,
 				AC1AFBCC1DFB435300E0BAF3 /* Assets.xcassets in Resources */,
 				AC1AFBCA1DFB435300E0BAF3 /* Main.storyboard in Resources */,
+				AC196B131DFDB75900C39D67 /* nav_geolocation@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +337,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -383,6 +388,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -412,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC099BCF29AF242F9FE3A91B /* Pods-Driver App.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H6FP4L2W3V;
 				INFOPLIST_FILE = "Driver App/Info.plist";
@@ -426,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15059EF1A8B1F877B4DF5522 /* Pods-Driver App.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H6FP4L2W3V;
 				INFOPLIST_FILE = "Driver App/Info.plist";
