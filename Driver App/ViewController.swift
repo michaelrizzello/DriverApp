@@ -54,6 +54,8 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         self.orderIDField.delegate = self
         
         LocationManager.sharedInstance.registerForLocationChanges({ (location, callback) in
+            
+            self.showUserLocation(location: location)
             if self.orderID != 0
             {
                 self.submitLocation()
